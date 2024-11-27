@@ -1,5 +1,31 @@
+Hello and welcome to my Tuple Out consolidation project!
+In this program you will be playing against the computer to roll a higher score. As the player, you will be asked to determine how many rounds the game will last. During each round you will be given the option to roll non-matching dice again.
 
-game rules + instructions etc.
-- asks user to insert name as a system argument
-- game asks user how many rounds they want to play (customizable)
--
+
+**HOW TO PLAY**
+
+At the command line you will start by writing python tuple_out.py and proceed to write the username you would like the computer to refer to you as. When the game begins you'll be asked how many rounds you'd like to play. For each round, both you and the computer will roll three dice.
+
+**Examples of Gameplay**
+If you roll a 3, 3, and 2 during your round:
+Since there are two 3' the 3’s are fixed, but you would be able to reroll the 2 as many times as you want to try to get a higher score.
+However, if you re-roll and it turns up as a 3, and since the other dice are also
+3’s, you will have Tuple out and end the round with zero points.
+
+If you roll a a 1, 2, and 3:
+Since there are no matching die you would be able to  roll all three again. If you get two matching dice after your reroll you will only be able to reroll the one non-matching dice.
+
+After you decide to stop rolling (or tuple out) it will then be the computer's turn. The computer will only roll once and does not get to reroll the die.
+
+After each round the player's and computer's scores will be added up and displayed. 
+
+
+**Requirements**
+This program uses a custom Python module called `input_checker` which is used to verify that the user provided the number of rounds as digits. This must be in the same directory as the main `tuple_out.py'.
+
+In order to run this program open a terminal window and navigate to the directory containing the tuple_out.py Python program. Once you have done that, at the command line you must first write python tuple_out.py and proceed to write the username you would like the computer to refer to you as. 
+
+Example: python tuple_out.py brankle
+The above provided example written at the command line will run the tuple_out program and the computer will refer to you throughout the game as brankle.
+
+
