@@ -5,8 +5,8 @@ import os
 import random
 import input_checker
 
-#player_name = sys.argv[1]
-player_name = "xox"
+player_name = sys.argv[1]
+
 
 print (f"Hello {player_name}! Welcome to my Tuple Out Dice Game!")
 
