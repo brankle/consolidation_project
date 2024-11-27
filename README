@@ -1,2 +1,5 @@
 
 game rules + instructions etc.
+- asks user to insert name as a system argument
+- game asks user how many rounds they want to play (customizable)
+-
