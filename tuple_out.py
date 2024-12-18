@@ -32,7 +32,14 @@ round_num = 1
 #score dictionary
 scores = {f"{player_name}": 0, "computer": 0}
 
-#main game logic
+#tuple out function
+def tupled_out(dice):
+    """
+    This function responds to a user tupling out. 
+    """
+    if len(set(dice)) == 1:
+        print("You Tupled out and earned 0 points this round!\n")
+
 for round_num in range(1, num_of_rounds_int + 1):
     print(f"Round {round_num}. Your turn:\n")
     time.sleep(1)
@@ -50,12 +57,9 @@ for round_num in range(1, num_of_rounds_int + 1):
     print(f"You rolled a: {dice}")  
 
     #checking for matching die
-    if len(set(dice)) == 1:
-        print("You Tupled out and earned 0 points this round!\n")
-        player_round_score = 0
 
     #2 matching dice
-    elif len(set(dice)) == 2: 
+    if len(set(dice)) == 2: 
         print("Since you rolled the same number twice you can only reroll one of the die.\n")
         turn_over = False
         while not turn_over:
@@ -76,7 +80,7 @@ for round_num in range(1, num_of_rounds_int + 1):
                 if len(set(dice)) == 1:
                     input_checker.roll_delay
                     print(f"After rerolling, your new dice are: {dice}")
-                    print("You Tupled out and earned 0 points this round!\n")
+                    tupled_out(dice)
                     player_round_score = 0
                     turn_over = True
                 else:
@@ -86,12 +90,11 @@ for round_num in range(1, num_of_rounds_int + 1):
                 turn_over = True
             else:
                 print("That response was not understood so you will not reroll.")
-                turn_over = True
-                
+                turn_over = True          
                 #if player rolls 3 unique die            
     elif len(set(dice)) == 3:
         print("Since you rolled three unique numbers you can reroll all of your die.\n")
-
+    
         #dice reroll loop
         turn_over = False
         while not turn_over:
@@ -103,13 +106,9 @@ for round_num in range(1, num_of_rounds_int + 1):
                 dice = [random.randint(1, 6) for _ in range(3)]
                 print(f"After rerolling, your new dice are: {dice}.")
 
-                if len(set(dice)) == 1: #tupled out
-                    print("You Tupled out and earned 0 points this round!\n")
-                    player_round_score = 0
-                    turn_over = True
-
-                    #two matching dice after reroll
-                elif len(set(dice)) == 2: 
+                
+                #two matching dice after reroll
+                if len(set(dice)) == 2: 
                     print("Since you rolled the same number twice you can only reroll one of the die.\n") 
                     turn_over = False  
                     while not turn_over:
@@ -129,8 +128,7 @@ for round_num in range(1, num_of_rounds_int + 1):
                             print(f"After rerolling, your new dice are: {dice}.")
 
                             # Checking if the player tuples out after reroll
-                            if len(set(dice)) == 1:  
-                                print("You Tupled out and earned 0 points this round!\n")
+                            if tupled_out:
                                 player_round_score = 0
                                 turn_over = True
                         elif reroll_input == "no" or reroll_input == 'n':
@@ -139,12 +137,16 @@ for round_num in range(1, num_of_rounds_int + 1):
                         else:
                             print("That response was not understood so you will not reroll.")
                             turn_over = True
+                else:
+                    tupled_out(dice)
             elif reroll_input == "no" or reroll_input == 'n':  # Handling "no" inside the main loop
                 print("You chose not to reroll.")
                 turn_over = True  
             else:
                 print("That response was not understood so you will not reroll.")
                 turn_over = True  
+        else: 
+            tupled_out(dice)        
 
     #updating player's score
     if len(set(dice)) != 1:
