@@ -1,6 +1,5 @@
-Hello and welcome to my Tuple Out consolidation project!
+Hello and welcome to my tuple out dice game final project.
 In this program you will be playing against the computer to roll a higher score. As the player, you will be asked to determine how many rounds the game will last. During each round you will be given the option to roll non-matching dice again.
-
 
 **HOW TO PLAY**
 
@@ -17,11 +16,18 @@ Since there are no matching die you would be able to  roll all three again. If y
 
 After you decide to stop rolling (or tuple out) it will then be the computer's turn. The computer will only roll once and does not get to reroll the die.
 
-After each round the player's and computer's scores will be added up and displayed. 
+**Game Features:**
+After each round:
+- Time Tracker: The amount of time it took for the player to roll will be displayed.
+- Multiplier: If a player takes less than 5 seconds to complete their turn, their score will be multipled by 1.5    
+- Scoring: The player's and computer's scores will be displayed.
+
+Game Ending:
+At the end of the game both the player and computer's scores will be displayed. The player with the highest score wins!
 
 
 **Requirements**
-This program uses a custom Python module called `input_checker` which is used to verify that the user provided the number of rounds as digits. This must be in the same directory as the main `tuple_out.py'.
+This program uses a custom Python module called `input_checker` which is used to verify that the user provided the number of rounds as digits and to delay the reveal of a player's roll. This must be in the same directory as the main file: `tuple_out.py'.
 
 In order to run this program open a terminal window and navigate to the directory containing the tuple_out.py Python program. Once you have done that, at the command line you must first write python tuple_out.py and proceed to write the username you would like the computer to refer to you as. 
 

@@ -6,8 +6,7 @@ import random
 import input_checker
 import time
 
-#player_name = sys.argv[1]
-player_name = "test"
+player_name = sys.argv[1]
 
 
 print (f"Hello {player_name}! Welcome to my Tuple Out Dice Game!")
@@ -147,16 +146,21 @@ for round_num in range(1, num_of_rounds_int + 1):
                 turn_over = True  
         else: 
             tupled_out(dice)        
+    
+    #determing how much time the player's rolls took
+    elapsed_time = time.time() - start_time
+    
+    player_round_score = sum(dice) 
+    
+    #score multiplier rewarding quick decision-making
+    print(f"Your rolls took: {elapsed_time} seconds\n")
+    if elapsed_time < 5:
+        player_round_score *= 1.5 
+    #printing score for the round    
+    print(f"Your score this round is: {player_round_score}\n")
 
     #updating player's score
-    if len(set(dice)) != 1:
-        player_round_score = sum(dice) 
-    else:
-        player_round_score = 0
     scores[player_name] += player_round_score  
-
-    #printing score for the round
-    print(f"Your score this round is: {player_round_score}\n")
 
     #computer player logic           
     print(f"Round {round_num}. The computer's turn:\n")
@@ -176,8 +180,8 @@ for round_num in range(1, num_of_rounds_int + 1):
 
 
 
-    elapsed_time = time.time() - start_time
-    print(f"This round lasted: {elapsed_time} seconds\n")
+    
+    
     #printing current score
     print(f"Current Score: {player_name} - {scores[player_name]} | Computer - {scores['computer']}\n")
 
