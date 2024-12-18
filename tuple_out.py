@@ -4,8 +4,10 @@ import sys
 import os
 import random
 import input_checker
+import time
 
-player_name = sys.argv[1]
+#player_name = sys.argv[1]
+player_name = "test"
 
 
 print (f"Hello {player_name}! Welcome to my Tuple Out Dice Game!")
@@ -33,6 +35,7 @@ scores = {f"{player_name}": 0, "computer": 0}
 #main game logic
 for round_num in range(1, num_of_rounds_int + 1):
     print(f"Round {round_num}. Your turn:\n")
+    time.sleep(1)
 
     #initializing player's score
     player_round_score = 0
@@ -42,6 +45,7 @@ for round_num in range(1, num_of_rounds_int + 1):
     for a in range(3):
         player_dice_roll = random.randint(1,6)
         dice.append(player_dice_roll)
+    input_checker.reroll_input_timed
     print(f"You rolled a: {dice}")  
 
     #checking for matching die
@@ -69,6 +73,7 @@ for round_num in range(1, num_of_rounds_int + 1):
 
                 #if player tuples out during reroll        
                 if len(set(dice)) == 1:
+                    input_checker.reroll_input_timed
                     print(f"After rerolling, your new dice are: {dice}")
                     print("You Tupled out and earned 0 points this round!\n")
                     player_round_score = 0
@@ -119,6 +124,7 @@ for round_num in range(1, num_of_rounds_int + 1):
                                 #rerolling unique die
                             print(f"You are rerolling {unique_die}. \n")
                             dice[dice.index(unique_die)] = random.randint(1, 6)
+                            input_checker.reroll_input_timed
                             print(f"After rerolling, your new dice are: {dice}.")
 
                             # Checking if the player tuples out after reroll
