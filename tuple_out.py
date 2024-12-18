@@ -36,6 +36,7 @@ scores = {f"{player_name}": 0, "computer": 0}
 for round_num in range(1, num_of_rounds_int + 1):
     print(f"Round {round_num}. Your turn:\n")
     time.sleep(1)
+    start_time = time.time()
 
     #initializing player's score
     player_round_score = 0
@@ -45,7 +46,7 @@ for round_num in range(1, num_of_rounds_int + 1):
     for a in range(3):
         player_dice_roll = random.randint(1,6)
         dice.append(player_dice_roll)
-    input_checker.reroll_input_timed
+    input_checker.roll_delay
     print(f"You rolled a: {dice}")  
 
     #checking for matching die
@@ -58,7 +59,7 @@ for round_num in range(1, num_of_rounds_int + 1):
         print("Since you rolled the same number twice you can only reroll one of the die.\n")
         turn_over = False
         while not turn_over:
-            reroll_input = input("Would you like to reroll one of your die? \n").lower()
+            reroll_input = input("Would you like to reroll one of your die? (yes/y or no/n) \n").lower()
             if reroll_input == 'yes' or reroll_input == 'y':
                 #finding unique die to reroll
                 for b in dice:
@@ -73,7 +74,7 @@ for round_num in range(1, num_of_rounds_int + 1):
 
                 #if player tuples out during reroll        
                 if len(set(dice)) == 1:
-                    input_checker.reroll_input_timed
+                    input_checker.roll_delay
                     print(f"After rerolling, your new dice are: {dice}")
                     print("You Tupled out and earned 0 points this round!\n")
                     player_round_score = 0
@@ -112,7 +113,7 @@ for round_num in range(1, num_of_rounds_int + 1):
                     print("Since you rolled the same number twice you can only reroll one of the die.\n") 
                     turn_over = False  
                     while not turn_over:
-                        reroll_input = input("Would you like to reroll one of your die? \n")
+                        reroll_input = input("Would you like to reroll one of your die? (yes/y or no/n) \n")
                         reroll_input = reroll_input.lower()
                         if reroll_input == 'yes' or reroll_input == 'y':
 
@@ -124,7 +125,7 @@ for round_num in range(1, num_of_rounds_int + 1):
                                 #rerolling unique die
                             print(f"You are rerolling {unique_die}. \n")
                             dice[dice.index(unique_die)] = random.randint(1, 6)
-                            input_checker.reroll_input_timed
+                            input_checker.roll_delay
                             print(f"After rerolling, your new dice are: {dice}.")
 
                             # Checking if the player tuples out after reroll
@@ -173,7 +174,8 @@ for round_num in range(1, num_of_rounds_int + 1):
 
 
 
-
+    elapsed_time = time.time() - start_time
+    print(f"This round lasted: {elapsed_time} seconds\n")
     #printing current score
     print(f"Current Score: {player_name} - {scores[player_name]} | Computer - {scores['computer']}\n")
 

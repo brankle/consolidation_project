@@ -1,3 +1,6 @@
+import time
+
+#checking input format
 def check_input_type(num_of_rounds):
     """"
     This function checks whether the number of rounds the user responds with an integer
@@ -8,3 +11,14 @@ def check_input_type(num_of_rounds):
         num_of_rounds = input("How many rounds would you like to play?\n")  
     
     return (num_of_rounds)
+
+
+#delaying dice reveal
+def roll_delay():
+    """"
+    This function serves to delay the reveal of what a player rolled in order to add a layer of suspense to the game. 
+    """
+    print("Checking your roll...")
+    time.sleep(2)
+
+
