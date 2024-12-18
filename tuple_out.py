@@ -161,9 +161,11 @@ for round_num in range(1, num_of_rounds_int + 1):
 
     #updating player's score
     scores[player_name] += player_round_score  
+    time.sleep(1)
 
     #computer player logic           
     print(f"Round {round_num}. The computer's turn:\n")
+    time.sleep(2)
     computer_dice_rolls = tuple(random.randint(1, 6) for _ in range(3))
     print(f"The computer rolled a: {computer_dice_rolls}.\n") 
 
@@ -181,7 +183,7 @@ for round_num in range(1, num_of_rounds_int + 1):
 
 
     
-    
+    time.sleep(1)
     #printing current score
     print(f"Current Score: {player_name} - {scores[player_name]} | Computer - {scores['computer']}\n")
 
